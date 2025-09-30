@@ -110,9 +110,9 @@ htmltools::browsable(
         team_logo = colDef(name="",
                            cell = embed_img(width=30,height=40)
         ),
-        Team = colDef(minWidth = 180,align = "center",vAlign = "center"),
+        Team = colDef(name="Club",minWidth = 180,align = "center",vAlign = "center"),
         Total_Spent_Convert.x = colDef(
-          name = "💸 Total Money Spent (£M)",align = "right",minWidth = 150,
+          name = "💸 Spent(£M)",align = "center",minWidth = 150,
           cell = data_bars(
             outer_table,
             text_position = "outside-end",   # <- completely to the right
@@ -123,7 +123,7 @@ htmltools::browsable(
           )
         ),
         Total_Spent_Convert.y = colDef(minWidth = 150,
-          name = "💰 Total Money From Transfers (£M)",align = "right",
+          name = "💰Sold(£M)",align = "center",
           cell = data_bars(
             outer_table,
             text_position = "outside-end",   # <- completely to the right
@@ -133,7 +133,7 @@ htmltools::browsable(
             number_fmt = scales::label_number(suffix = "M")
           )
         ),
-        Expenditure=colDef(name="Expenditure",align="center",minWidth = 150,
+        Expenditure=colDef(name="Net Spend",align="center",minWidth = 150,
           cell = data_bars(outer_table, 
                            fill_color = c("#E74C3C","#2ECC71"),
                            text_position = "outside-end",   # <- completely to the right

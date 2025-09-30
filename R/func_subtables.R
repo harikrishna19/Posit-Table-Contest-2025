@@ -11,7 +11,7 @@ get_summaries <- function(data) {
 # Function to make child tables
 make_player_table <- function(data) {
   reactable(
-    data %>% select(Player, Fee, Position),
+    data %>% select(Player,Age,Position,Market.value,Fee,Age),
     bordered = TRUE, highlight = TRUE, compact = TRUE,pagination = F,resizable = T,striped = T,
     columns = list(
       Player = colDef(minWidth = 140,align = "center"),
