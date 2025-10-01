@@ -1,8 +1,8 @@
 ---
-title:
-output:
-  html_document:
-    theme: cerulean        # (or any Bootswatch theme: cerulean, cosmo, lumen, etc.)
+title: Transfer Market Analysis EPL 2025/26
+output: 
+  prettydoc::html_pretty:
+    theme: leonids        # (or any Bootswatch theme: cerulean, cosmo, lumen, etc.)
 ---
 
 ```{r setup, include = FALSE}
@@ -74,13 +74,15 @@ outer_table$Expenditure<-outer_table$Total_Spent_Convert.x-outer_table$Total_Spe
 ```
 
 ```{r table}
-knitr::include_graphics(here("www","pl.svg"))
 htmltools::browsable(
   htmltools::div(
     style = "display:grid;align-content:center;justify-content:center;width: 70%; margin: 0 auto; text-align: center;",
     div(
       style = "display: flex; align-items: center; gap: 10px;",
-      
+       tags$img(
+    src = here("www","pl.svg"),  # path relative to the app
+    height = "60px"
+  ),
       # Title + Subtitle
       div(
         tags$h1("2025-26 Premier League Transfers"),
