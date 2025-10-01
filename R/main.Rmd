@@ -65,6 +65,8 @@ outer_table<-merge_tables(inc_data = datasets[[1]]$summary,
 outer_table$Expenditure<-NA
 inner_table<-list(Incoming=datasets[[1]]$data_clean,
                   Outgoing=datasets[[2]]$data_clean)
+inner_table<-list(Incoming=calculated_cols(inner_table$Incoming),
+                  Outgoing=calculated_cols(inner_table$Outgoing))
 ```
 
 ```{r}
@@ -77,14 +79,14 @@ outer_table$Expenditure<-outer_table$Total_Spent_Convert.x-outer_table$Total_Spe
 htmltools::browsable(
   htmltools::div(
     style = "display:grid;align-content:center;justify-content:center;width: 70%; margin: 0 auto; text-align: center;",
-   tags$div( class = "fixed-logo",
-  # Logo
-  tags$img(
-    src = here("www", "pl.svg"),  # path relative to your R project
-    height = '60px',
-    style = "margin-bottom:10px;"
-  )
-),
+#    tags$div( class = "fixed-logo",
+#   # Logo
+#   tags$img(
+#     src = here("www", "pl.svg"),  # path relative to your R project
+#     height = '60px',
+#     style = "margin-bottom:10px;"
+#   )
+# ),
     reactable(
       pagination = F,
       outer_table %>% select(team_logo,Team,Total_Spent_Convert.x,Total_Spent_Convert.y,Expenditure,-Total_Spent.x,-Total_Spent.y),
@@ -182,34 +184,11 @@ htmltools::browsable(
 }
 
 p{
-    margin-top: -32px;
     color: #37003c;
-    z-index: 1;
     text-align: right;
     font-family:Monospace;
 }
 
-.fixed-logo {
-  position: absolute;   /* lock position */
-  top: 0;            /* stick to top */
-  left: 0;           /* stick to left */
-  height: 60px;      /* adjust logo size */
-  padding: 8px;      /* spacing from edges */
-}
-
-@media (max-width: 768px) {
-  .fixed-logo {
-    height: 40px;   /* smaller logo for tablets/mobiles */
-    padding: 5px;
-  }
-}
-
-@media (max-width: 480px) {
-  .fixed-logo {
-    height: 30px;   /* even smaller for small phones */
-    padding: 3px;
-  }
-}
 
 .page-header {
     color: black;
