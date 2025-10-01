@@ -2,7 +2,8 @@
 title: Transfer Market Analysis EPL 2025/26
 output: 
   prettydoc::html_pretty:
-    theme: leonids        # (or any Bootswatch theme: cerulean, cosmo, lumen, etc.)
+    theme: cayman
+    css: "www/styles.css"
 ---
 
 ```{r setup, include = FALSE}
@@ -85,7 +86,6 @@ htmltools::browsable(
   ),
       # Title + Subtitle
       div(
-        tags$h1("2025-26 Premier League Transfers"),
         tags$h4(
           style = "color: black; font-weight: normal;",
           "All the incoming and outgoings for each club in the Premier League for 2025/26 season"
@@ -163,5 +163,19 @@ htmltools::browsable(
     tags$p(style = "margin-top: 10px; color: #666;", "Data source:Transfer Markt Data,Table Design:By Hari Krishna")
     
   ))
+
+```
+
+```{css}
+
+.rt-tr-details{
+  background: aliceblue;
+}
+
+.rt-td-inner{
+  text-align: center;
+  font-weight: bold;
+}
+
 
 ```
