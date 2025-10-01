@@ -1,9 +1,8 @@
 ---
-title: Transfer Market Analysis EPL 2025/26
+title: Player Transfers 2025/26-English Premier League
 output: 
   prettydoc::html_pretty:
     theme: cayman
-    css: "www/styles.css"
 ---
 
 ```{r setup, include = FALSE}
@@ -78,20 +77,14 @@ outer_table$Expenditure<-outer_table$Total_Spent_Convert.x-outer_table$Total_Spe
 htmltools::browsable(
   htmltools::div(
     style = "display:grid;align-content:center;justify-content:center;width: 70%; margin: 0 auto; text-align: center;",
-    div(
-      style = "display: flex; align-items: center; gap: 10px;",
-       tags$img(
-    src = here("www","pl.svg"),  # path relative to the app
-    height = "60px"
-  ),
-      # Title + Subtitle
-      div(
-        tags$h4(
-          style = "color: black; font-weight: normal;",
-          "All the incoming and outgoings for each club in the Premier League for 2025/26 season"
-        )
-      )
-    ),
+   tags$div( class = "fixed-logo",
+  # Logo
+  tags$img(
+    src = here("www", "pl.svg"),  # path relative to your R project
+    height = '60px',
+    style = "margin-bottom:10px;"
+  )
+),
     reactable(
       pagination = F,
       outer_table %>% select(team_logo,Team,Total_Spent_Convert.x,Total_Spent_Convert.y,Expenditure,-Total_Spent.x,-Total_Spent.y),
@@ -160,8 +153,7 @@ htmltools::browsable(
         textOverflow = "clip"
       )
     ),
-    tags$p(style = "margin-top: 10px; color: #666;", "Data source:Transfer Markt Data,Table Design:By Hari Krishna")
-    
+    tags$p("Data source:Transfer Markt Data,Table Design:Hari Krishna")
   ))
 
 ```
@@ -170,12 +162,61 @@ htmltools::browsable(
 
 .rt-tr-details{
   background: aliceblue;
+  text-align: center;
 }
 
 .rt-td-inner{
   text-align: center;
-  font-weight: bold;
+  font-family:sans-serif;
+  font-size: large;
+  font-weight: lighter;
+   color:black;
 }
 
+.main-content :first-child {
+    margin-top: 0px;
+    text-align:center;
+    color: black;
+    margin-left: 0px;
+    padding: -1px;
+}
+
+p{
+    margin-top: -32px;
+    color: #37003c;
+    z-index: 1;
+    text-align: right;
+    font-family:Monospace;
+}
+
+.fixed-logo {
+  position: absolute;   /* lock position */
+  top: 0;            /* stick to top */
+  left: 0;           /* stick to left */
+  height: 60px;      /* adjust logo size */
+  padding: 8px;      /* spacing from edges */
+}
+
+@media (max-width: 768px) {
+  .fixed-logo {
+    height: 40px;   /* smaller logo for tablets/mobiles */
+    padding: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fixed-logo {
+    height: 30px;   /* even smaller for small phones */
+    padding: 3px;
+  }
+}
+
+.page-header {
+    color: black;
+    text-align: center;
+    background-color: bisque;
+    padding: 1.5rem 2rem;
+    background-image: none;
+}
 
 ```

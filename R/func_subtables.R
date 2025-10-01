@@ -44,7 +44,7 @@ merge_tables<-function(inc_data,out_data,teams,pl_inc_data){
 
 update_cols <- function(data) {
   data <- data %>% dplyr::mutate(
-    Age = case_when(
+    Age_Category = case_when(
       Age <= 21 ~ "U21",
       Age <= 25 ~ "22-25",
       Age <= 30 ~ "26-30",
@@ -56,7 +56,7 @@ update_cols <- function(data) {
       Position %in% c("Centre-Back","Left-Back","Right-Back") ~ "🛡️ DEF",
       Position %in% c("Left Midfield","Right Midfield","Defensive Midfield","Attacking Midfield") ~ "🎯 MID",
       Position %in% c("Centre-Forward","Second Striker") ~ "⚽ FWD",
-      Position %in% c("Right Winger","Left Winger") ~ "⚽ FWingers",
+      Position %in% c("Right Winger","Left Winger") ~ "⚽ Wingers",
       TRUE ~ Position  # fallback for any other positions
     )
   )
