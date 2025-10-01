@@ -63,4 +63,8 @@ update_cols <- function(data) {
   return(data)
 }
 
-update_cols(pl_incomings)
+
+calculated_cols<-function(data){
+  
+}
+

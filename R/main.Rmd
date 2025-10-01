@@ -1,21 +1,33 @@
+---
+title: "Premier League Transfers 2025/26"
+output:
+  html_document:
+    theme: cerulean        # (or any Bootswatch theme: cerulean, cosmo, lumen, etc.)
+    highlight: tango     # code highlighting style
+---
 
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo = FALSE)
+source("utils.R")
+source("func_data_clean.R")
+source("func_subtables.R")
+```
 
-
-# Sourcing functions  -----------------------------------------------------
-
-source("R/utils.R")
-source("R/func_data_clean.R")
-source("R/func_subtables.R")
-
-
+```{r data}
 # Read Transfer Markt Data from the data folder ------------------------------------------------
+library(here)
+pl_incomings <- read.csv(here("data", "pl_incomings.csv"), check.names = TRUE)
+pl_outgoings <- read.csv(here("data", "pl_outgoings.csv"), check.names = TRUE)
 
-pl_incomings<-read.csv("data/pl_incomings.csv",check.names = T)
-pl_outgoings<-read.csv("data/pl_outgoings.csv",check.names = T)
+```
 
+```{r}
 pl_incomings<-update_cols(pl_incomings)
 pl_outgoings<-update_cols(pl_outgoings)
 
+```
+
+```{r}
 # Clean the Data sets using functions -------------------------------------
 
 datasets <- list(pl_incomings, pl_outgoings)
@@ -43,9 +55,9 @@ datasets <- lapply(datasets, function(df) {
   )
 })
 
+```
 
-
-
+```{r}
 # Outer table logic -------------------------------------------------------
 
 outer_table<-merge_tables(inc_data = datasets[[1]]$summary,
@@ -54,14 +66,15 @@ outer_table<-merge_tables(inc_data = datasets[[1]]$summary,
 outer_table$Expenditure<-NA
 inner_table<-list(Incoming=datasets[[1]]$data_clean,
                   Outgoing=datasets[[2]]$data_clean)
+```
 
-# Build main table reactable ----------------------------------------------
-
-
+```{r}
 outer_table$Total_Spent_Convert.x <-parse_number(outer_table$Total_Spent_Convert.x)
 outer_table$Total_Spent_Convert.y <-parse_number(outer_table$Total_Spent_Convert.y)
 outer_table$Expenditure<-outer_table$Total_Spent_Convert.x-outer_table$Total_Spent_Convert.y
-# Build main table
+```
+
+```{r table}
 htmltools::browsable(
   htmltools::div(
     style = "display:grid;align-content:center;justify-content:center;width: 70%; margin: 0 auto; text-align: center;",
@@ -70,7 +83,7 @@ htmltools::browsable(
       
       # Premier League logo
       tags$img(
-        src = "https://upload.wikimedia.org/wikipedia/en/f/f2/Premier_League_Logo.svg",
+        src = "pl.jpg",
         height = "60px"
       ),
       
@@ -155,30 +168,4 @@ htmltools::browsable(
     
   ))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```
