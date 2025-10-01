@@ -1,9 +1,8 @@
 ---
-title: "Premier League Transfers 2025/26"
+title:
 output:
   html_document:
     theme: cerulean        # (or any Bootswatch theme: cerulean, cosmo, lumen, etc.)
-    highlight: tango     # code highlighting style
 ---
 
 ```{r setup, include = FALSE}
@@ -75,17 +74,12 @@ outer_table$Expenditure<-outer_table$Total_Spent_Convert.x-outer_table$Total_Spe
 ```
 
 ```{r table}
+knitr::include_graphics(here("www","pl.svg"))
 htmltools::browsable(
   htmltools::div(
     style = "display:grid;align-content:center;justify-content:center;width: 70%; margin: 0 auto; text-align: center;",
     div(
       style = "display: flex; align-items: center; gap: 10px;",
-      
-      # Premier League logo
-      tags$img(
-        src = "pl.jpg",
-        height = "60px"
-      ),
       
       # Title + Subtitle
       div(
