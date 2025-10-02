@@ -136,7 +136,9 @@ calculated_cols <- function(data) {
   data <- data %>%
     mutate(
       Market.value = str_replace(Market.value, "m$", "M"),
-      Fee = str_replace(Fee, "m$", "M")
+      Fee = str_replace(Fee, "m$", "M") %>%  str_replace("Free transfer", "Free") %>%
+        str_replace("Loan transfer.*", "Loan transfer") %>%
+        str_replace("End of loan.*", "End of loan")
     ) %>%
     mutate(
       invalid_row = str_detect(Fee, regex("^(End of loan|Loan transfer|-)", ignore_case = TRUE)) |
