@@ -47,10 +47,18 @@ make_player_table <- function(data) {
       Market.value = colDef(name = "Market Value", minWidth = 170),
       OverpaidPct = colDef(
         name = "% Overpaid", minWidth = 170,
+        header = htmltools::div(
+          "%OverPaid",
+          htmltools::tags$span(
+            " ⓘ",
+            style = "cursor: help; color: #555;",
+            onmouseover = "this.setAttribute('title','(Fee - Market Value) / Market Value * 100. Positive → overpaid, Negative → underpaid.')"
+          )
+        ),
         style = function(value) list(color = ifelse(value <= 0, "green", "red"), fontWeight = "bold"),
         cell = function(value) paste0(value, "%")
       ),
-      ROI = colDef(
+      ROI = colDef(show=FALSE,
         name = "ROI (%)", minWidth = 170,
         style = function(value) list(color = ifelse(value >= 0, "green", "red"), fontWeight = "bold"),
         cell = function(value) paste0(value, "%")
