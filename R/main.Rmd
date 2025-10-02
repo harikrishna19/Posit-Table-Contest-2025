@@ -126,7 +126,7 @@ htmltools::browsable(
             text_position = "outside-end",   # <- completely to the right
             text_color = "black",            # ensure readable text
             bar_height = "20px",
-            fill_color = "#2ECC71",
+            fill_color = "#e74c3c",
             number_fmt = scales::label_number(suffix = "M")
           )
         ),
@@ -136,7 +136,7 @@ htmltools::browsable(
             outer_table,
             text_position = "outside-end",   # <- completely to the right
             text_color = "black",
-            fill_color = "#E74C3C", # ensure readable text
+            fill_color = "#2ecc71", # ensure readable text
             bar_height = "20px",
             number_fmt = scales::label_number(suffix = "M")
           )
@@ -145,7 +145,7 @@ htmltools::browsable(
                            style=list(fontWeight="bold",color="black"),
           cell = data_bars(outer_table,
                            align_bars ="left",
-                           fill_color = c("#E74C3C","#2ECC71"),
+                           fill_color = c("#2ECC71","#e74c3c"),
                            text_position = "outside-end",   # <- completely to the right
                            text_color = "black",            # ensure readable text
                            bar_height = "20px",
