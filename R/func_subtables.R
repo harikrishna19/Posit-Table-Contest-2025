@@ -57,7 +57,13 @@ make_player_table <- function(data) {
           )
         ),
         style = function(value) list(color = ifelse(value <= 0, "green", "red"), fontWeight = "bold"),
-        cell = function(value) paste0(value, "%")
+        cell = function(value) {
+          if (is.na(value)) {
+            "-"   # replace NA with dash
+          } else {
+            paste0(value, "%")  # append % for non-NA values
+          }
+        }
       ),
       `Club Left` = colDef(name = "Club Left", minWidth = 170),
       ROI = colDef(show=FALSE,
