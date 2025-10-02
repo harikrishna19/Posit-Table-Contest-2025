@@ -55,5 +55,4 @@ The dashboard is fully reproducible and styled with custom themes, logos, and CS
 For questions, suggestions, or feedback, reach out to:
 
 **Hari Krishna**\
-
 GitHub: <https://github.com/harikrishna19>

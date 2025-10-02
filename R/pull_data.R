@@ -1,8 +1,5 @@
 
-
-
 # Scrape the 2025/26 Premier League Transfer Markt Data -------------------
-
 tm_data<-rvest::read_html("https://www.transfermarkt.com/premier-league/transfers/wettbewerb/GB1") %>% html_elements("table") %>% html_table() 
 scrape_img<-rvest::read_html("https://www.transfermarkt.com/premier-league/transfers/wettbewerb/GB1") %>% html_elements(".content-box-headline--logo img") %>% html_attr("src") 
 pl_transfers<- tm_data[2:41]
@@ -30,7 +27,7 @@ pl_incomings  <- do.call(rbind, pl_incomings)
 
 
 
-# Write data to csv to be further used for analysis -----------------------
+# Write data to data folder:csv to be further used for analysis -----------------------
 write.csv(pl_outgoings,"data/pl_outgoings.csv",row.names=F)
 write.csv(pl_incomings,"data/pl_incomings.csv",row.names=F)
 

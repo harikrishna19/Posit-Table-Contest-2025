@@ -9,6 +9,7 @@ library(readr)
 library(janitor)
 library(dplyr)
 library(htmltools)
+library(stringr)
 
 
 # Teams in 2025/26 Premier League season ----------------------------------
