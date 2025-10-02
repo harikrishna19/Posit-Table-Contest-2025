@@ -116,7 +116,7 @@ htmltools::browsable(
       style = list(backgroundColor = "#fff7cc"),
       columns = list(
         team_logo = colDef(name="",
-                           cell = embed_img(width=30,height=40)
+                           cell = embed_img(width=40,height=40)
         ),
         Team = colDef(name="Club",minWidth = 180,align = "center",vAlign = "center",
                       style=list(fontWeight="bold",color="black")),
