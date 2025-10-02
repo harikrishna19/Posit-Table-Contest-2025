@@ -206,4 +206,9 @@ p{
 .rt-th {
   color:black;
 }
+
+.main-content img {
+    max-width: 100%;
+    width: auto;
+}
 ```
