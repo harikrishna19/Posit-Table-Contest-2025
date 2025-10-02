@@ -2,7 +2,7 @@
 
 # Premier League Transfers Dashboard (2025/26)
 
-[Click to view the project](https://rpubs.com/hari_k/PL_Transfers)
+[Click to view the project](https://rpubs.com/hari_k/PL_Transfers-Final)
 
 A dynamic **Reactable** table in RMarkdown showcasing all Premier League transfers for the 2025/26 season. This project provides interactive tables with detailed insights into player movements, transfer fees, and club spending.
 
