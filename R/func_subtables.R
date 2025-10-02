@@ -39,12 +39,12 @@ make_player_table <- function(data) {
       ),
       highlightColor = "#e6f2f5"
     ),
-    data %>% select(Player, Age, Position, `Club Left`, Market.value, Fee, Age, OverpaidPct, ROI),
+    data %>% select(Player, Age, Position,OverpaidPct, Market.value, Fee, Age,`Club Left`, ROI),
     bordered = TRUE, highlight = TRUE, compact = TRUE, pagination = FALSE, resizable = TRUE, striped = TRUE,
     columns = list(
       Player = colDef(minWidth = 170, sticky = "left"),
-      `Club Left` = colDef(name = "Club Left", minWidth = 170),
-      Market.value = colDef(name = "Market Value", minWidth = 170),
+      Market.value = colDef(name = "Market Value", minWidth = 200,style=list(fontWeight="bold",color="black")),
+      Fee=colDef(name = "Fee", minWidth = 200,style=list(fontWeight="bold",color="black")),
       OverpaidPct = colDef(
         name = "% Overpaid", minWidth = 170,
         header = htmltools::div(
@@ -58,6 +58,7 @@ make_player_table <- function(data) {
         style = function(value) list(color = ifelse(value <= 0, "green", "red"), fontWeight = "bold"),
         cell = function(value) paste0(value, "%")
       ),
+      `Club Left` = colDef(name = "Club Left", minWidth = 170),
       ROI = colDef(show=FALSE,
         name = "ROI (%)", minWidth = 170,
         style = function(value) list(color = ifelse(value >= 0, "green", "red"), fontWeight = "bold"),

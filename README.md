@@ -1,10 +1,12 @@
-# Posit-Table-Contest-2025
+# Posit-Table-Contest-2025 Submission
 
 # Premier League Transfers Dashboard (2025/26)
 
 [Click to view the project](https://rpubs.com/hari_k/PL_Transfers)
 
 A dynamic **Reactable** table in RMarkdown showcasing all Premier League transfers for the 2025/26 season. This project provides interactive tables with detailed insights into player movements, transfer fees, and club spending.
+
+**Data Source:** Transfer Markt: <https://www.transfermarkt.co.uk/>
 
 ------------------------------------------------------------------------
 
@@ -34,7 +36,7 @@ The dashboard is fully reproducible and styled with custom themes, logos, and CS
 
     **Ensure Data Files Are Present**\
 
-    Place `pl_incomings.csv` and `pl_outgoings.csv` in the `data/` folder
+    Make Sure `pl_incomings.csv` and `pl_outgoings.csv` in the `data/` folder
 
 3.  **Install Required Packages**\
 
@@ -44,11 +46,20 @@ The dashboard is fully reproducible and styled with custom themes, logos, and CS
 
     -   Click **Knit** in RStudio to generate the HTML output
 
-        Alternatively, run in R console:
+        Alternatively, run in R console to reproduce the table:
 
         ```         
-        rmarkdown::render("main.Rmd", output_format = "prettydoc::html_pretty")
+        # 1. Render the RMarkdown file
+        output_file <- rmarkdown::render(
+          input = "R/main.Rmd", 
+          output_format = "prettydoc::html_pretty"
+        )
+
+        # 2. Open the rendered HTML in default browser
+        browseURL(output_file)
         ```
+
+### Table Screenshot:
 
 ## Contact
 
