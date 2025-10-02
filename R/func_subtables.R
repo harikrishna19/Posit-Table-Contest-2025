@@ -43,6 +43,7 @@ make_player_table <- function(data) {
     bordered = TRUE, highlight = TRUE, compact = TRUE, pagination = FALSE, resizable = TRUE, striped = TRUE,
     columns = list(
       Player = colDef(minWidth = 170, sticky = "left"),
+      Position=colDef(minWidth=170),
       Market.value = colDef(name = "Market Value", minWidth = 200,style=list(fontWeight="bold",color="black")),
       Fee=colDef(name = "Fee", minWidth = 200,style=list(fontWeight="bold",color="black")),
       OverpaidPct = colDef(
@@ -109,10 +110,10 @@ update_cols <- function(data) {
       TRUE ~ "30+"
     ),
     Position = case_when(
-      Position == "Goalkeeper" ~ "🧤 GK",
-      Position %in% c("Centre-Back", "Left-Back", "Right-Back") ~ "🛡️ DEF",
-      Position %in% c("Left Midfield", "Right Midfield", "Defensive Midfield", "Attacking Midfield", "Central Midfield") ~ "🎯 MID",
-      Position %in% c("Centre-Forward", "Second Striker") ~ "⚽ FWD",
+      Position == "Goalkeeper" ~ "🧤 GoalKeeper",
+      Position %in% c("Centre-Back", "Left-Back", "Right-Back") ~ "🛡Defender",
+      Position %in% c("Left Midfield", "Right Midfield", "Defensive Midfield", "Attacking Midfield", "Central Midfield") ~ "🎯Midfielder",
+      Position %in% c("Centre-Forward", "Second Striker") ~ "⚽Forward",
       Position %in% c("Right Winger", "Left Winger") ~ "⚽ Winger",
       TRUE ~ Position
     )
