@@ -61,6 +61,8 @@ The dashboard is fully reproducible and styled with custom themes, logos, and CS
 
 ### Table Screenshot:
 
+![](images/PL.png)
+
 ## Contact
 
 For questions, suggestions, or feedback, reach out to:
