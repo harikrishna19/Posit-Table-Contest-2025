@@ -140,8 +140,8 @@ calculated_cols <- function(data) {
     mutate(
       invalid_row = str_detect(Fee, regex("^(End of loan|Loan transfer|-)", ignore_case = TRUE)) |
         str_detect(Market.value, regex("^(End of loan|Loan transfer|-)", ignore_case = TRUE)),
-      Fee_num = suppressWarnings(parse_number(Fee)),
-      MV_num = suppressWarnings(parse_number(Market.value)),
+      Fee_num = suppressWarnings(convert_value(Fee)),
+      MV_num = suppressWarnings(convert_value(Market.value)),
       OverpaidPct = if_else(
         !invalid_row & !is.na(Fee_num) & !is.na(MV_num),
         round(((Fee_num - MV_num) / MV_num) * 100, 1),
@@ -153,4 +153,5 @@ calculated_cols <- function(data) {
         NA_real_
       )
     ) %>% select(-Fee_num, -MV_num, -invalid_row)
+  return(data)
 }

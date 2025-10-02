@@ -12,16 +12,14 @@
 #' @export
 convert_value <- function(x) {
   x <- toupper(x)
-  if (grepl("M$", x)) {
-    as.numeric(readr::parse_number(x)) * 1e6
-  } else if (grepl("K$", x)) {
-    as.numeric(readr::parse_number(x)) * 1e3
-  } else if (suppressWarnings(!is.na(as.numeric(x)))) {
-    as.numeric(x)
-  } else {
-    NA_real_
-  }
+  dplyr::case_when(
+    grepl("M$", x) ~ readr::parse_number(x) * 1e6,
+    grepl("K$", x) ~ readr::parse_number(x) * 1e3,
+    suppressWarnings(!is.na(as.numeric(x))) ~ as.numeric(x),
+    TRUE ~ NA_real_
+  )
 }
+
 
 
 #' Format Numeric Values with M/K Suffix

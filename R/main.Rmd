@@ -48,6 +48,7 @@ datasets <- lapply(datasets, function(df) {
     drop       = drop,
     player_name_col = player_name_col
   )
+  
   list(
     data_clean   = data_clean,
     summary   = get_summaries(data_clean)
@@ -66,7 +67,7 @@ outer_table$Expenditure<-NA
 inner_table<-list(Incoming=datasets[[1]]$data_clean,
                   Outgoing=datasets[[2]]$data_clean)
 inner_table<-list(Incoming=calculated_cols(inner_table$Incoming),
-                  Outgoing=calculated_cols(inner_table$Outgoing))
+                   Outgoing=calculated_cols(inner_table$Outgoing))
 ```
 
 ```{r}
