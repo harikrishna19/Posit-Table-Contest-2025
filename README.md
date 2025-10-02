@@ -14,7 +14,7 @@ This project leverages **R**, **RMarkdown**, and **reactable** to create an inte
 
 -   Player names, positions, and clubs.
 -   Transfer fees (incoming and outgoing).
--   Detailed financial metrics including overpaid percentage and ROI.
+-   Detailed financial metrics including overpaid percentage with tooltips
 
 The dashboard is fully reproducible and styled with custom themes, logos, and CSS enhancements for a polished presentation.
 
