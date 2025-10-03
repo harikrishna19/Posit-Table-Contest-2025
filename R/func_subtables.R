@@ -65,7 +65,7 @@ make_player_table <- function(data) {
           }
         }
       ),
-      `Club Left` = colDef(name = "Club Left", minWidth = 170),
+      `Club Left` = colDef(name = "Left/Joined", minWidth = 170),
       ROI = colDef(show=FALSE,
         name = "ROI (%)", minWidth = 170,
         style = function(value) list(color = ifelse(value >= 0, "green", "red"), fontWeight = "bold"),
