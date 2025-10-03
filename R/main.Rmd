@@ -66,8 +66,8 @@ outer_table<-merge_tables(inc_data = datasets[[1]]$summary,
 outer_table$Expenditure<-NA
 inner_table<-list(Incoming=datasets[[1]]$data_clean,
                   Outgoing=datasets[[2]]$data_clean)
-inner_table<-list(Incoming=calculated_cols(inner_table$Incoming),
-                   Outgoing=calculated_cols(inner_table$Outgoing))
+inner_table<-list("Incoming Transfers"=calculated_cols(inner_table$Incoming),
+                   "Outgoing Transfers"=calculated_cols(inner_table$Outgoing))
 ```
 
 ```{r}
